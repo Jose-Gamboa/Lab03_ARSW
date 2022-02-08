@@ -11,13 +11,21 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 1. Revise el funcionamiento del programa y ejecútelo. Mientras esto ocurren, ejecute jVisualVM y revise el consumo de CPU del proceso correspondiente. A qué se debe este consumo?, cual es la clase responsable?
    
-	Al ejecutar el programa podemos observar que el consumo de CPU se encuentra en un rango del 12% al 13%
+    **R//** Al ejecutar el programa podemos observar que el consumo de CPU se encuentra en un rango del 12% al 13%
 	
-	![](img/consumo_p_c.PNG)
+    ![](img/consumo_p_c.PNG)
 	
-	Este consumo se debe a que en la clase *Consumer* en el método run se encuentra un while que siempre se está ejecutando a pesar de que la lista se encuentre vacía, haciendo que este espera activa aumente el consumo del programa y este vea afectado su rendimiento.
+    Este consumo se debe a que en la clase **Consumer** en el método run se encuentra un while que siempre se está ejecutando a pesar de que la lista se encuentre vacía, haciendo que este espera activa aumente el consumo del programa y este vea afectado su rendimiento.
 
 2. Haga los ajustes necesarios para que la solución use más eficientemente la CPU, teniendo en cuenta que -por ahora- la producción es lenta y el consumo es rápido. Verifique con JVisualVM que el consumo de CPU se reduzca.
+
+    **R//** Como se había mencionado en el punto anterior el causante del problema del consumo era la clase **Consumer**, para solucionar el problema se agregó un "sleep" al método "run" de dicha clase haciendo que esta no consuma recursos de manera innecesaria.
+
+    ![](img/cpcreduce.png)
+
+    Al realizar este cambio y nuevamente ejecutar el programa observamos esta gráfica de rendimiento:
+
+	![](img/cpcreduceG.png)
    
 3. Haga que ahora el productor produzca muy rápido, y el consumidor consuma lento. Teniendo en cuenta que el productor conoce un límite de Stock (cuantos elementos debería tener, a lo sumo en la cola), haga que dicho límite se respete. Revise el API de la colección usada como cola para ver cómo garantizar que dicho límite no se supere. Verifique que, al poner un límite pequeño para el 'stock', no haya consumo alto de CPU ni errores.
 

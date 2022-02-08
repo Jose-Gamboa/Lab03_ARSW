@@ -34,11 +34,5 @@ public class StartProduction {
         
         
         new Consumer(queue).start();
-        /*
-        if (queue.size() != 0 ){
-            queue.notifyAll();
-        }*/
     }
-    
-
 }
