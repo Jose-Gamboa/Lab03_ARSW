@@ -25,10 +25,19 @@ Control de hilos con wait/notify. Productor/consumidor.
 
     Al realizar este cambio y nuevamente ejecutar el programa observamos esta gráfica de rendimiento:
 
-	![](img/cpcreduceG.png)
+    ![](img/cpcreduceG.png)
    
 3. Haga que ahora el productor produzca muy rápido, y el consumidor consuma lento. Teniendo en cuenta que el productor conoce un límite de Stock (cuantos elementos debería tener, a lo sumo en la cola), haga que dicho límite se respete. Revise el API de la colección usada como cola para ver cómo garantizar que dicho límite no se supere. Verifique que, al poner un límite pequeño para el 'stock', no haya consumo alto de CPU ni errores.
 
+    **R//** Como punto de partida y al revisar el API de la librería decidí realizar el cambio del constructor para poder agregar un límite a la cola:
+
+    ![](img/newConst.png)
+
+    Una vez hecho esto con un simple **if** que valide el espacio disponible en la cola para que este pueda esperar a que sean desencolados algunos datos y así no llegar al tope de datos admitidos por la cola y evitando errores en la ejecución sin sacrificar el rendimiento.
+
+    ![](img/newProdu.png)
+
+   ![](img/newProdusmaxCost.png)
 
 ##### Parte II. – Antes de terminar la clase.
 

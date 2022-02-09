@@ -26,13 +26,11 @@ public class Consumer extends Thread{
 
             if (queue.size() == 0) {
                   try {
-                      synchronized (queue) {
-                          Thread.sleep(5000);
-                      }
+                      Thread.sleep(1000);
                   } catch (InterruptedException e) {
                       e.printStackTrace();
                   }
-            } else{
+            } else {
                 int elem=queue.poll();
                 System.out.println("Consumer consumes "+elem);
             }
