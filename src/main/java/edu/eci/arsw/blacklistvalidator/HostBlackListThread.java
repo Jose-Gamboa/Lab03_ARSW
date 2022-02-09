@@ -12,12 +12,13 @@ public class HostBlackListThread extends Thread{
 	private int fini;
 	private String ipAddress;
 	private int ocurrencesCount = 0;
-	private LinkedList<Integer> blackListOcurrences=new LinkedList<>();
+	private LinkedList<Integer> blackListOcurrences;
 	
-	public HostBlackListThread(int ini, int fini, String ipAddress) {
+	public HostBlackListThread(int ini, int fini, String ipAddress, LinkedList<Integer> blackListOcurrences) {
 		this.ini = ini;
 		this.fini = fini;
 		this.ipAddress = ipAddress;
+		this.blackListOcurrences = blackListOcurrences;
 	}
 	
 	public void run() {

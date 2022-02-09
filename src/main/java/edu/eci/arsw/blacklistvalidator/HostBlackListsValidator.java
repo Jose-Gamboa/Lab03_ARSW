@@ -77,7 +77,7 @@ public class HostBlackListsValidator {
         for(int i=0;i<n;i++) {
         	ini = div*i;
         	fin = ini + div;
-        	HostBlackListThread th = new HostBlackListThread(ini, fin, ipaddress);
+        	HostBlackListThread th = new HostBlackListThread(ini, fin, ipaddress, blackListOcurrences);
         	th.start();
         	lth.add(th);
         }

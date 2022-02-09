@@ -20,11 +20,12 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Color;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JScrollBar;
 
 public class ControlFrame extends JFrame {
 
-    private static final int DEFAULT_IMMORTAL_HEALTH = 100;
+    private static final AtomicInteger DEFAULT_IMMORTAL_HEALTH = new AtomicInteger(100);
     private static final int DEFAULT_DAMAGE_VALUE = 10;
 
     private JPanel contentPane;
